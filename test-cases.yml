@@ -899,6 +899,7 @@
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
     - Выбрать фильтр по повестке дня
+    - Проверить отображение интервала даты над календарем (должно быть от текущего дня до )
     - Кликнуть по кнопке "Back" и "Next" несколько раз
     - Кликнуть по "Today"
   expected-result: |
@@ -1015,8 +1016,11 @@
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
     - Ввести в поле "Round timeout seconds" значение 100
+    - Нажать "Create Tournament"
     - Ввести в поле "Round timeout seconds" значение 5000
+    - Нажать "Create Tournament"
     - Ввести в поле "Round timeout seconds" значение 10000
+    - Нажать "Create Tournament"
     - Нажать "Create Tournament"
   expected-result: |
     Ошибок нет, турнир создан
@@ -1031,7 +1035,11 @@
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
     - Ввести в поле "Round timeout seconds" значение 99
+    - Нажать "Create Tournament"
+    - Ввести в поле "Round timeout seconds" значение 0
+    - Нажать "Create Tournament"
     - Ввести в поле "Round timeout seconds" значение -1
+    - Нажать "Create Tournament"
     - Ввести в поле "Round timeout seconds" значение 10001
     - Нажать "Create Tournament"
   expected-result: |
@@ -1047,7 +1055,9 @@
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
     - Ввести в поле  значение 0
+    - Нажать "Create Tournament"
     - Ввести в поле значение 50000
+    - Нажать "Create Tournament"
     - Ввести в поле значение 100000
     - Нажать "Create Tournament"
   expected-result: |
@@ -1063,6 +1073,7 @@
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
     - Ввести в поле значение -1
+    - Нажать "Create Tournament"
     - Ввести в поле значение 100001
     - Нажать "Create Tournament"
   expected-result: |

@@ -234,3 +234,35 @@
 - summary: |
     Проверка возможности зайти в любой завершенный турнир и просмотреть его результаты
   status: fail
+
+- summary: |
+    Проверка возможности присоединиться к незавершенному турниру
+  status: pass
+
+- summary: |
+    Проверка поля ввода Name в форме создания турнира на допустимые значения
+  status: pass
+
+- summary: |
+    Проверка поля ввода Description в форме создания турнира на допустимые значения
+  status: pass
+
+- summary: |
+    Проверка ввода даты в форме создания турнира на недопустимые значения
+  status: pass
+
+- summary: |
+    Проверка поля "Round timeout seconds" на допустимые значения
+  status: pass
+
+- summary: |
+    Проверка поля "Round timeout seconds" на недопустимые значения
+  status: pass
+
+- summary: |
+    Проверка поля "Break duration seconds" на допустимые значения
+  status: pass
+
+- summary: |
+    Проверка поля "Break duration seconds" на недопустимые значения
+  status: pass
