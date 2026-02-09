@@ -173,7 +173,7 @@
 
 - summary: |
     Проверка изменения никнейма в настройках
-  status: pass
+  status: fail
 
 - summary: |
     Проверка поля "Your name" на допустимые значения
