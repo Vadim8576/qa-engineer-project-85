@@ -4,33 +4,35 @@
   requirement: |
     При успешной регистрации пользователь должен войти в систему
   prerequisites: |
-    Открыта страница регистрации
+    Пользователь на главной. Не авторизован
   test-data: |
-    Нет
+    https://codebattle.hexlet.io/
   steps:
-    - Вводим nickname
-    - Вводим email
-    - Вводим password
-    - Вводим подтверждение пароля
+    - Перейти на страницу регистрации "Sing Up"
+    - Ввести nickname
+    - Ввести email
+    - Ввести password
+    - Ввести подтверждение пароля
   expected-result: |
-    Если нет ошибок пользователь должен попасть на главную страницу
+    Происходит автоматическая авторизация, переход на главную
 
 - summary: |
     Проверка повторной регистрации пользователя с существующими nickname и email
   requirement: |
     При верном вводе существующего nicknameа и email выводится сообщение, что nickname и email уже используются
   prerequisites: |
-    Пользователь уже зарегистрирован на сайте. Открыта страница регистрации
+    Пользователь уже зарегистрирован на сайте, находится на главной, не авторизован
   test-data: |
     nickname1 = cbtester, nickname2 = newcbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
-    - Вводим nickname1
-    - Вводим email
-    - Вводим password
-    - Вводим подтверждение пароля
-    - Нажимаем кнопку "Submit"
-    - Если появилось сообщение, что nickname уже существует, вводим nickname2 (несуществующий)
-    - Нажимаем кнопку "Submit"
+    - Перейти на страницу регистрации "Sing Up"
+    - Ввести nickname1
+    - Ввести email
+    - Ввести password
+    - Ввести подтверждение пароля
+    - Нажать кнопку "Submit"
+    - Если появилось сообщение, что nickname уже существует, ввести nickname2 (несуществующий)
+    - Нажать кнопку "Submit"
   expected-result: |
     nickname1 - сообщение "nickname существует", nickname2 - "email существует"
 
@@ -39,32 +41,35 @@
   requirement: |
     При верном вводе логине и пароля пользователь должен войти в систему
   prerequisites: |
-    Открыта страница логина
+    Пользователь на главной. Не авторизован
   test-data: |
     nickname = cbtester, email = cbtester@codebattle.ru, password = !Abcde_2026
   steps:
-    - Вводим nickname
-    - Вводим email
-    - Вводим password
-    - Нажимаем кнопку "Submit"
+    - Перейти на страницу входа "Sing In"
+    - Ввести nickname
+    - Ввести email
+    - Ввести password
+    - Нажать кнопку "Submit"
   expected-result: |
-    Успешный вход. Доступ к профилю
+    Происходит в профиль, переход на главную
 
 - summary: |
     Проверка входа пользователя с несуществующими email и паролем
   requirement: |
     При неправильном email или пароле пользователь должен получить сообщение об ошибке
-  prerequisites: Открыта страница логина
+  prerequisites: |
+    Пользователь на главной. Не авторизован
   test-data: |
-    email1 = abc@abc.ru, email2 = cbtester@codebattle.ru, password = badpass
+    email1 = abc@abc.ru (несуществующий), email2 = cbtester@codebattle.ru (существующий), password = badpass
   steps:
-    - Вводим email1
-    - Вводим password
-    - Нажимаем кнопку "Submit"
-    - Если появилось сообщение "Неверный email", вводим email2
-    - Нажимаем кнопку "Submit"
+    - Перейти на страницу входа "Sing In"
+    - Ввести email1
+    - Ввести password
+    - Нажать кнопку "Submit"
+    - Если появилось сообщение "email не найден" (EMAIL_NOT_FOUND), ввести email2
+    - Нажать кнопку "Submit"
   expected-result: |
-    email1 - "Неверный email", email2 - "Неверный password"
+    email1 - ошибка "email не найден", email2 - ошибка "Неверный password"
 
 - summary: |
     Проверка выхода из профиля
